@@ -1674,13 +1674,35 @@ section {
 }
 
 .pricing-price {
-    text-align: center;
-    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    /* Changed from baseline to center for better match of large fonts */
+    gap: 16px;
+}
+
+.old-price {
+    font-size: 64px;
+    /* Larger than price-value (56px) */
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    /* Make strikethrough thicker */
+    opacity: 0.6;
+    font-weight: 700;
 }
 
 .price-value {
     font-size: 56px;
-    font-weight: 900;
+    font-weight: 800;
+    line-height: 1;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
