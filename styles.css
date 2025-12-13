@@ -1625,17 +1625,12 @@ section {
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     padding: 50px 40px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-.pricing-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
+
 
 .pricing-card.featured {
     border-color: var(--accent-cyan);

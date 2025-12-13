@@ -394,7 +394,7 @@ class HeroAnimation {
 // ===================================
 class CardTilt {
     constructor() {
-        this.cards = document.querySelectorAll('.benefit-card, .audience-card, .pricing-card');
+        this.cards = document.querySelectorAll('.benefit-card, .audience-card');
         this.init();
     }
 
@@ -658,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new HeroAnimation();
     new CardTilt();
     new StepsAnimation();
-    new PricingCardEffect();
+
     new ButtonRipple();
     new GradientAnimation();
 
