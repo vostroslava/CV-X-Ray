@@ -376,12 +376,12 @@ section {
 }
 
 .hero-title {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(32px, 5vw, 56px);
+    /* Reduced from 40-72px */
     font-weight: 900;
     line-height: 1.05;
-    /* Tighter line height */
-    margin-bottom: 24px;
-    /* Reduced from 30px */
+    margin-bottom: 20px;
+    /* Reduced from 24px */
 }
 
 .typing-effect {
@@ -1459,16 +1459,14 @@ section {
 }
 
 .hero-description {
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(32px, 5vw, 56px);
     /* Match hero-title */
     font-weight: 900;
-    /* Match hero-title */
     color: var(--text-primary);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    /* Reduced from 32px */
     max-width: 1000px;
-    /* Allow more width for larger text */
     line-height: 1.05;
-    /* Match hero-title */
 }
 
 .panel-title {
@@ -2643,15 +2641,13 @@ section {
     }
 
     .hero-title {
-        font-size: 30px;
-        /* Increased from 28px */
+        font-size: 24px;
+        /* Reduced from 30px */
         line-height: 1.2;
         word-wrap: break-word;
-        /* Prevent long word overflow */
         padding: 0 10px;
-        /* Safety padding */
-        margin-bottom: 20px;
-        /* Explicit margin reduction */
+        margin-bottom: 16px;
+        /* Reduced margin */
     }
 
     .hero-subtitle {
@@ -2677,10 +2673,11 @@ section {
     }
 
     .hero-description {
-        font-size: 30px;
+        font-size: 24px;
         /* Match mobile hero-title */
         line-height: 1.2;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
+        /* Reduced margin */
     }
 
 
