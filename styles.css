@@ -2613,8 +2613,10 @@ section {
 
     /* FIX: Ensure badge clears header on small screens */
     .hero {
-        padding-top: 150px;
-        /* Increased from 115px to fix overlap */
+        padding-top: 180px;
+        /* Increased to 180px */
+        align-items: flex-start;
+        /* Force content to start from top padding, disable centering */
     }
 
     .section-title {
