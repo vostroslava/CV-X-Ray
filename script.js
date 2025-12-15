@@ -688,6 +688,62 @@ class ModalController {
         this.modal.classList.remove('active');
         document.body.style.overflow = '';
     }
+    close() {
+        this.modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// ===================================
+// MOBILE STICKY CTA CONTROLLER
+// ===================================
+class MobileStickyCTA {
+    constructor() {
+        this.cta = document.getElementById('mobile-sticky-cta');
+        this.lastScrollY = window.scrollY;
+        this.ticking = false;
+
+        if (this.cta) {
+            this.init();
+        }
+    }
+
+    init() {
+        window.addEventListener('scroll', () => {
+            if (!this.ticking) {
+                window.requestAnimationFrame(() => {
+                    this.update();
+                    this.ticking = false;
+                });
+                this.ticking = true;
+            }
+        });
+    }
+
+    update() {
+        const currentScrollY = window.scrollY;
+        const heroHeight = document.querySelector('.hero').offsetHeight || 500;
+
+        // Logic: Show if scrolled past hero AND (scrolling up OR at very bottom)
+        // Hide if at very top or scrolling down
+
+        // Simple version: Show after user scrolls past 300px
+        if (currentScrollY > 300) {
+            // Optional: Hide on scroll down, show on scroll up
+            if (currentScrollY > this.lastScrollY && currentScrollY < (document.body.scrollHeight - window.innerHeight - 100)) {
+                // Scrolling down & not at bottom -> hide
+                this.cta.classList.remove('visible');
+            } else {
+                // Scrolling up -> show
+                this.cta.classList.add('visible');
+            }
+        } else {
+            // At top -> hide
+            this.cta.classList.remove('visible');
+        }
+
+        this.lastScrollY = currentScrollY;
+    }
 }
 
 // ===================================
@@ -715,7 +771,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Modals
     new ModalController('a[href="privacy-policy.html"]', 'privacy-modal');
     new ModalController('#contacts-trigger', 'contacts-modal');
+    new ModalController('#contacts-trigger', 'contacts-modal');
     new ModalController('#about-trigger', 'about-modal');
+
+    // Mobile Sticky CTA
+    new MobileStickyCTA();
 
     // Typing effect for hero title (with delay)
     setTimeout(() => {
