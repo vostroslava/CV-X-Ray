@@ -2345,6 +2345,63 @@ section {
     .hero-cta .btn {
         width: 100%;
         justify-content: center;
+        min-height: 52px;
+        /* Touch target */
+    }
+
+    /* FIX: Functionality & Layers */
+    .hero {
+        min-height: auto;
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 40px;
+        overflow: visible;
+        /* Prevent cutting off shadows/content */
+    }
+
+    .hero-text {
+        position: relative;
+        z-index: 10;
+        /* Text above visuals */
+    }
+
+    .hero-cta {
+        position: relative;
+        z-index: 11;
+        /* Buttons highest priority */
+    }
+
+    /* FIX: Visual Flow - Stop Absolute Positioning Madness on Mobile */
+    .hero-visual {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 0;
+        margin-top: 40px;
+        gap: 20px;
+        z-index: 1;
+        order: 2;
+        /* Ensure below text */
+    }
+
+    .resume-card,
+    .report-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .resume-card:hover {
+        transform: none !important;
+    }
+
+    /* Hide complex data flow on mobile if it interferes, or center it */
+    .data-flow {
+        display: none;
     }
 
     /* Reduce new hero button size on mobile */
@@ -2482,11 +2539,12 @@ section {
 
 
     /* Force visual below text always */
+    /* Force visual below text always */
     .hero-visual {
         order: 2;
         margin-top: 20px;
-        max-height: 300px;
-        /* Limit height */
+        /* Remove max-height limit to fit stacked cards */
+        max-height: none;
     }
 
     .btn {
