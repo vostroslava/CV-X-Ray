@@ -2458,3 +2458,44 @@ section {
 .modal-body::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
 }
+
+/* ===================================
+   CONTACTS MODAL
+   =================================== */
+.contacts-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-company {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.contact-value {
+    color: var(--text-secondary);
+}
+
+.contact-value a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-value a:hover {
+    color: var(--text-primary);
+}

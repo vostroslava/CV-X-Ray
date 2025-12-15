@@ -644,9 +644,9 @@ class ButtonRipple {
 // MODAL CONTROLLER
 // ===================================
 class ModalController {
-    constructor() {
-        this.modal = document.getElementById('privacy-modal');
-        this.trigger = document.querySelector('a[href="privacy-policy.html"]');
+    constructor(triggerSelector, modalId) {
+        this.modal = document.getElementById(modalId);
+        this.trigger = document.querySelector(triggerSelector);
         this.closeBtn = this.modal?.querySelector('.modal-close');
 
         this.init();
@@ -711,7 +711,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new ButtonRipple();
     new GradientAnimation();
-    new ModalController();
+
+    // Initialize Modals
+    new ModalController('a[href="privacy-policy.html"]', 'privacy-modal');
+    new ModalController('#contacts-trigger', 'contacts-modal');
 
     // Typing effect for hero title (with delay)
     setTimeout(() => {
