@@ -1458,6 +1458,19 @@ section {
     margin-bottom: 0;
 }
 
+.hero-description {
+    font-size: clamp(40px, 6vw, 72px);
+    /* Match hero-title */
+    font-weight: 900;
+    /* Match hero-title */
+    color: var(--text-primary);
+    margin-bottom: 32px;
+    max-width: 1000px;
+    /* Allow more width for larger text */
+    line-height: 1.05;
+    /* Match hero-title */
+}
+
 .panel-title {
     font-size: 20px;
     font-weight: 700;
@@ -2664,7 +2677,9 @@ section {
     }
 
     .hero-description {
-        font-size: 14px;
+        font-size: 30px;
+        /* Match mobile hero-title */
+        line-height: 1.2;
         margin-bottom: 24px;
     }
 
