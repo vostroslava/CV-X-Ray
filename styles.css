@@ -166,6 +166,17 @@ section {
     box-shadow: 0 6px 30px rgba(0, 245, 255, 0.6);
 }
 
+.btn-hero-cta {
+    padding: 18px 48px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn-hero-cta:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 40px rgba(0, 245, 255, 0.5);
+}
+
 .btn-secondary {
     background: transparent;
     color: var(--text-primary);
@@ -646,15 +657,7 @@ section {
     position: relative;
 }
 
-.step-line {
-    position: absolute;
-    top: 40px;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-    z-index: 0;
-}
+/* Old global step line removed */
 
 .step {
     position: relative;
@@ -666,6 +669,48 @@ section {
     text-align: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
+}
+
+/* Connecting line via pseudo-element */
+.step::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    /* Aligns with icon center roughly */
+    right: -25px;
+    /* Pulls out to the right */
+    width: 25px;
+    /* Half gap */
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), transparent);
+    z-index: 0;
+    opacity: 0.6;
+    display: none;
+    /* Default hidden */
+}
+
+/* Show lines on desktop for steps that are not the last in a known row */
+@media (min-width: 1025px) {
+    .steps-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        /* Increased gap for visual space */
+    }
+
+    .step::after {
+        display: block;
+        width: 50px;
+        /* Full gap width */
+        right: -50px;
+        background: linear-gradient(90deg, rgba(0, 245, 255, 0.5), rgba(0, 245, 255, 0.2));
+    }
+
+    /* Remove line from every 3rd item (end of row) and the very last item */
+    .step:nth-child(3n)::after,
+    .step:last-child::after {
+        display: none;
+    }
 }
 
 .step:hover {
@@ -2332,6 +2377,23 @@ section {
 
     .time-arrow {
         transform: rotate(90deg);
+    }
+
+    .telegram-card {
+        padding: 30px 20px;
+    }
+
+    .telegram-title {
+        font-size: 24px;
+    }
+
+    .telegram-description {
+        font-size: 16px;
+    }
+
+    .faq-question {
+        padding: 16px 20px;
+        font-size: 16px;
     }
 }
 
