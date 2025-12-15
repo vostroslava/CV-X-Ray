@@ -781,7 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing effect: Chain Title -> Subtext
     const titleElement = document.querySelector('.hero-title .typing-effect');
-    const subtextElement = document.querySelector('.hero-subtext.typing-effect');
+    const subtextElement = document.querySelector('.hero-description.typing-effect');
 
     if (titleElement) {
         // Start Title (with small initial delay)
