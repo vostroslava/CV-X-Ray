@@ -2663,6 +2663,13 @@ section {
         display: inline-block;
     }
 
+    .hero-subtext {
+        font-size: 14px;
+        margin-top: 20px;
+        padding: 0 10px;
+        /* Prevent edge touching */
+    }
+
 
     /* Force visual below text always */
     /* Force visual below text always */
