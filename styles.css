@@ -2228,7 +2228,19 @@ section {
 @media (max-width: 1024px) {
     :root {
         --section-padding: 80px;
-        --container-padding: 40px;
+        /* More vertical space */
+        --container-padding: 24px;
+        /* Safe side padding */
+    }
+
+    body {
+        line-height: 1.6;
+        /* Better readability */
+    }
+
+    section {
+        margin-bottom: 80px;
+        /* Increased rhythm */
     }
 
     .hero-content {
@@ -2348,6 +2360,24 @@ section {
     /* Ensure connecting lines are gone on mobile */
     .step::after {
         display: none;
+    }
+
+    .step {
+        /* Align content efficiently */
+        padding: 24px 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Strict center */
+    }
+
+    /* Increase generic card padding for "breathing room" */
+    .audience-card,
+    .benefits-card,
+    .pricing-card {
+        padding: 24px;
+        margin-bottom: 16px;
     }
 
     .benefits-grid,
