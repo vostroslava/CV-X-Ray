@@ -2423,6 +2423,10 @@ section {
     .hero-title {
         font-size: 28px;
         line-height: 1.2;
+        word-wrap: break-word;
+        /* Prevent long word overflow */
+        padding: 0 10px;
+        /* Safety padding */
     }
 
     .hero-subtitle {
@@ -2436,9 +2440,16 @@ section {
     }
 
     .hero-badge {
-        font-size: 12px;
-        padding: 6px 12px;
+        font-size: 11px;
+        padding: 6px 10px;
+        white-space: normal;
+        /* Allow wrap */
+        line-height: 1.4;
+        text-align: center;
+        max-width: 100%;
+        display: inline-block;
     }
+
 
     /* Force visual below text always */
     .hero-visual {
