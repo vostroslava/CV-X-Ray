@@ -56,8 +56,17 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
+    line-height: 1.6;
     overflow-x: hidden;
+    /* CRITICAL: Prevent horizontal scroll */
+    width: 100%;
     position: relative;
+}
+
+html {
+    overflow-x: hidden;
+    /* Double safety */
+    width: 100%;
 }
 
 /* Particle Canvas Background */
@@ -2330,16 +2339,42 @@ section {
         align-items: center;
     }
 
-    .hero-subtitle {
+    .hero-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        /* Safety */
+    }
+
+    .section-title,
+    .section-subtitle {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
         max-width: 100%;
     }
 
-    .hero-micro {
-        text-align: center;
+    .pricing-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
     }
 
-    .hero-cta {
-        flex-direction: column;
+    .pricing-card {
+        width: 100%;
+        max-width: 380px;
+        /* Optimal reading width */
+        margin: 0 auto;
+        /* Center the card */
+    }
+
+    /* Disable hover transforms on mobile to prevent stickiness/jumps */
+    .pricing-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-card);
+        /* Keep static shadow */
     }
 
     .hero-cta .btn {
