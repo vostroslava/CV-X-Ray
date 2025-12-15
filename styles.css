@@ -2313,6 +2313,8 @@ section {
 
     .vs-divider {
         transform: rotate(90deg);
+        margin: 0 auto;
+        /* Center the VS circle */
     }
 
     .footer-content {
