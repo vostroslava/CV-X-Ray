@@ -1459,14 +1459,15 @@ section {
 }
 
 .hero-description {
-    font-size: clamp(24px, 4vw, 40px);
-    /* Visibly smaller than title */
-    font-weight: 900;
+    font-size: clamp(20px, 3.5vw, 36px);
+    /* Further reduced for 2-line fit */
+    font-weight: 700;
+    /* Reduced weight slightly for better hierarchy */
     color: var(--text-primary);
     margin-bottom: 24px;
     max-width: 800px;
     /* Reduced max-width to encourage 3-line shape if needed */
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 .panel-title {
@@ -2548,8 +2549,6 @@ section {
 
     /* Make the last odd item full width if specific counting needed, 
        but 45% flex allows auto-fit nicely. 
-       Let's ensure "Executive" (first) is full width if we want,
-       or just let them flow 2x2. User said "2 in 1st row, 1 in 2nd" or sim.
        With 4 items, 2x2 is perfect. */
 
     .tab-text-desktop {
@@ -2673,8 +2672,8 @@ section {
     }
 
     .hero-description {
-        font-size: 18px;
-        /* Reduced from 20px */
+        font-size: 16px;
+        /* Reduced from 18px */
         line-height: 1.4;
         margin-bottom: 16px;
     }
