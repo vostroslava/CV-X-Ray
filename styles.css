@@ -1459,14 +1459,14 @@ section {
 }
 
 .hero-description {
-    font-size: clamp(28px, 4vw, 48px);
-    /* Slightly smaller than title for 2-line fit */
+    font-size: clamp(24px, 4vw, 40px);
+    /* Visibly smaller than title */
     font-weight: 900;
     color: var(--text-primary);
     margin-bottom: 24px;
-    max-width: 1000px;
-    line-height: 1.1;
-    /* Relaxed slightly for readability */
+    max-width: 800px;
+    /* Reduced max-width to encourage 3-line shape if needed */
+    line-height: 1.2;
 }
 
 .panel-title {
@@ -2673,9 +2673,9 @@ section {
     }
 
     .hero-description {
-        font-size: 20px;
-        /* Reduced from 24px */
-        line-height: 1.3;
+        font-size: 18px;
+        /* Reduced from 20px */
+        line-height: 1.4;
         margin-bottom: 16px;
     }
 
