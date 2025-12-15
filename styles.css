@@ -2335,11 +2335,18 @@ section {
         justify-content: center;
     }
 
+    /* Reduce new hero button size on mobile */
+    .btn-hero-cta {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+
     .steps-container {
         grid-template-columns: 1fr;
     }
 
-    .step-line {
+    /* Ensure connecting lines are gone on mobile */
+    .step::after {
         display: none;
     }
 
