@@ -185,12 +185,13 @@ class NavbarController {
 // TYPING EFFECT
 // ===================================
 class TypingEffect {
-    constructor(element) {
+    constructor(element, onComplete = null) {
         this.element = element;
-        this.text = element.textContent;
+        this.text = element.getAttribute('data-text') || element.textContent; // Use data-text if available
         this.element.textContent = '';
         this.charIndex = 0;
         this.typingSpeed = 50;
+        this.onComplete = onComplete;
 
         this.type();
     }
@@ -202,6 +203,7 @@ class TypingEffect {
             setTimeout(() => this.type(), this.typingSpeed);
         } else {
             this.element.classList.add('typing-complete');
+            if (this.onComplete) this.onComplete();
         }
     }
 }
@@ -777,13 +779,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Sticky CTA
     new MobileStickyCTA();
 
-    // Typing effect dynamically
-    document.querySelectorAll('.typing-effect').forEach(element => {
-        const delay = parseInt(element.dataset.typeDelay) || 500;
+    // Typing effect: Chain Title -> Subtext
+    const titleElement = document.querySelector('.hero-title .typing-effect');
+    const subtextElement = document.querySelector('.hero-subtext.typing-effect');
+
+    if (titleElement) {
+        // Start Title (with small initial delay)
         setTimeout(() => {
-            new TypingEffect(element);
-        }, delay);
-    });
+            new TypingEffect(titleElement, () => {
+                // When Title finishes, start Subtext
+                if (subtextElement) {
+                    new TypingEffect(subtextElement);
+                }
+            });
+        }, 500);
+    } else if (subtextElement) {
+        // Fallback if no title
+        new TypingEffect(subtextElement);
+    }
 
     // Optional cursor trail (comment out if too much)
     // new CursorTrail();
