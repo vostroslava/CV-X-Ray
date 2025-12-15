@@ -332,11 +332,18 @@ section {
 /* ===================================
    HERO SECTION
    =================================== */
+/* ===================================
+   HERO SECTION
+   =================================== */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
+    /* Remove forced full height for compactness */
     display: flex;
     align-items: center;
-    padding-top: 120px;
+    padding-top: 100px;
+    /* Reduced from 120px */
+    padding-bottom: 80px;
+    /* Explicit bottom padding */
     position: relative;
     overflow: hidden;
 }
@@ -355,8 +362,12 @@ section {
 
 .hero-content {
     display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    /* Using the spacer layout logic if applicable? No, reverted to original */
+    /* Wait, the reverted version uses 1fr 1.2fr */
     grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    gap: 60px;
+    /* Reduced from 80px */
     align-items: center;
 }
 
@@ -367,8 +378,10 @@ section {
 .hero-title {
     font-size: clamp(40px, 6vw, 72px);
     font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 30px;
+    line-height: 1.05;
+    /* Tighter line height */
+    margin-bottom: 24px;
+    /* Reduced from 30px */
 }
 
 .typing-effect {
@@ -384,10 +397,19 @@ section {
 
 .hero-cta {
     display: flex;
-    gap: 20px;
+    gap: 16px;
+    /* Reduced from 20px */
     flex-wrap: wrap;
     align-items: center;
-    /* Ensure vertical alignment */
+    margin-top: 32px;
+    /* Add margin top explicit here if needed, or was it on subtitle? */
+    /* Original file didn't have margin-top on hero-cta, it relied on subtitle margin-bottom: 40px */
+    /* Since subtitle is removed in HTML, we might need margin-top here or on hero-text? */
+    /* User removed subtitle. So gap is between Title and CTA directly? */
+    /* Before: Title (mb 30) -> Subtitle (mb 40) -> CTA */
+    /* Now: Title (mb 24) -> [Subtitle/Removed] -> CTA */
+    /* If subtitle is gone, we might need more margin if title margin is only 24px? */
+    /* But we want compact. 24px might be enough. Let's start with just gap adjustment */
 }
 
 .hero-badge {
@@ -399,7 +421,8 @@ section {
     border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    /* Reduced from 24px */
     letter-spacing: 0.5px;
 }
 
@@ -2263,7 +2286,8 @@ section {
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 40px;
+        /* Reduced from 60px */
     }
 
     .hero-visual {
@@ -2394,11 +2418,14 @@ section {
     }
 
     /* FIX: Functionality & Layers */
+    /* FIX: Functionality & Layers */
     .hero {
         min-height: auto;
         height: auto;
-        padding-top: 100px;
-        padding-bottom: 40px;
+        padding-top: 80px;
+        /* Reduced mobile top padding */
+        padding-bottom: 30px;
+        /* Reduced mobile bottom padding */
         overflow: visible;
         /* Prevent cutting off shadows/content */
     }
@@ -2598,6 +2625,8 @@ section {
         /* Prevent long word overflow */
         padding: 0 10px;
         /* Safety padding */
+        margin-bottom: 20px;
+        /* Explicit margin reduction */
     }
 
     .hero-subtitle {
@@ -2607,7 +2636,8 @@ section {
     }
 
     .hero-content {
-        gap: 30px;
+        gap: 20px;
+        /* Reduced from 30px */
     }
 
     .hero-badge {
