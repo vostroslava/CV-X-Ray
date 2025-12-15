@@ -45,12 +45,13 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text" data-scroll-animate>
+                    <div class="hero-badge">Подходит даже для пустых резюме</div>
                     <h1 class="hero-title">
                         <span class="gradient-text typing-effect">ИИ, который переводит резюме в решение</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Вставьте резюме кандидата — получите продвинутый отчёт: сильные стороны, риски,
-                        вопросы для интервью и итог <span class="highlight">"подходит / не подходит"</span>
+                        Даже если резюме на 5 строк — дособерём контекст и дадим чёткий план интервью.
+                        Анализируем риски, вопросы и даём итог <span class="highlight">"подходит / не подходит"</span>
                     </p>
                     <div class="hero-cta">
                         <a href="#cta-form" class="btn btn-primary btn-lg">
@@ -61,6 +62,7 @@
                             </svg>
                         </a>
                         <a href="#demo" class="btn btn-secondary btn-lg">Посмотреть пример отчёта</a>
+                        <span class="hero-micro">Короткое или пустое резюме — ок.</span>
                     </div>
                 </div>
 
@@ -126,6 +128,22 @@
 
             <div class="steps-container">
                 <div class="step-line"></div>
+                <!-- Step 0 for Empty CVs -->
+                <div class="step" data-scroll-animate data-delay="0">
+                    <div class="step-icon"
+                        style="background: var(--glass-bg); border: 2px solid var(--accent-cyan); color: var(--accent-cyan);">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path
+                                d="M16 4C9.4 4 4 9.4 4 16C4 22.6 9.4 28 16 28C22.6 28 28 22.6 28 16C28 9.4 22.6 4 16 4Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M16 10V16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="step-number" style="color: var(--text-primary)">00</div>
+                    <h3 class="step-title">Если резюме пустое?</h3>
+                    <p class="step-description">Попросим минимальные вводные (задачи, навыки) и сформируем вопросы,
+                        чтобы проверить реальную компетентность.</p>
+                </div>
                 <div class="step" data-scroll-animate data-delay="100">
                     <div class="step-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -297,6 +315,27 @@
                     <div class="benefit-highlight">
                         <span class="benefit-badge">Снижение рисков</span>
                         <span class="benefit-badge">Чёткие действия</span>
+                    </div>
+                </div>
+
+                <div class="benefit-card" data-scroll-animate data-delay="500">
+                    <div class="benefit-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path
+                                d="M40 12H8C5.8 12 4 13.8 4 16V32C4 34.2 5.8 36 8 36H40C42.2 36 44 34.2 44 32V16C44 13.8 42.2 12 40 12Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M14 20H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <path d="M14 28H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Работает даже когда CV почти нет</h3>
+                    <p class="benefit-description">
+                        Собираем недостающий контекст через уточняющие вопросы и выдаём структуру интервью, риски и
+                        точки проверки.
+                    </p>
+                    <div class="benefit-highlight">
+                        <span class="benefit-badge">Для джунов</span>
+                        <span class="benefit-badge">Смена сферы</span>
                     </div>
                 </div>
             </div>
@@ -717,7 +756,7 @@
                             <span class="price-value">650</span>
                             <span class="price-currency">BYN</span>
                         </div>
-                        <span class="price-period">/6 месяцев</span>
+                        <span class="price-period">/12 месяцев</span>
                     </div>
                     <ul class="pricing-features">
                         <li><span class="feature-icon">✓</span> Анализ резюме и маркеров</li>
@@ -739,23 +778,6 @@
             </h2>
 
             <div class="faq-list">
-                <div class="faq-item" data-scroll-animate data-delay="100">
-                    <button class="faq-question">
-                        <span>Как обеспечивается конфиденциальность резюме?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Все данные передаются по защищённому протоколу и обрабатываются в соответствии
-                            с требованиями GDPR и 152-ФЗ. Резюме не сохраняются на наших серверах после
-                            генерации отчёта. Мы используем enterprise-уровень безопасности.
-                        </p>
-                    </div>
-                </div>
-
                 <div class="faq-item" data-scroll-animate data-delay="200">
                     <button class="faq-question">
                         <span>В каких форматах можно загружать резюме?</span>
@@ -790,23 +812,6 @@
                     </div>
                 </div>
 
-                <div class="faq-item" data-scroll-animate data-delay="400">
-                    <button class="faq-question">
-                        <span>Можно ли настроить анализ под специфику нашей компании?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Да, в тарифе "Для агентств" доступна кастомизация критериев оценки,
-                            добавление специфичных вопросов для вашей индустрии и настройка весов
-                            различных параметров. Мы также можем обучить модель на ваших исторических данных.
-                        </p>
-                    </div>
-                </div>
-
                 <div class="faq-item" data-scroll-animate data-delay="500">
                     <button class="faq-question">
                         <span>Что делать, если ИИ ошибся в оценке?</span>
@@ -827,7 +832,7 @@
 
                 <div class="faq-item" data-scroll-animate data-delay="600">
                     <button class="faq-question">
-                        <span>Есть ли возможность интеграции с нашей ATS системой?</span>
+                        <span>Подойдёт ли сервис, если резюме короткое или вообще пустое?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -835,9 +840,11 @@
                     </button>
                     <div class="faq-answer">
                         <p>
-                            Да, для корпоративных клиентов мы предоставляем REST API для интеграции
-                            с популярными ATS системами (Workday, Greenhouse, Lever и другими).
-                            Также возможна разработка кастомных интеграций под ваши процессы.
+                            Да. Если информации мало, мы попросим минимальные вводные (вакансия, ключевые навыки, 2–3
+                            примера задач/проектов)
+                            и на их основе сформируем отчёт: риски, уточняющие вопросы, план интервью и критерии
+                            проверки.
+                            Это особенно полезно для джунов, смены сферы и кандидатов с перерывами.
                         </p>
                     </div>
                 </div>
@@ -920,6 +927,7 @@
                             </svg>
                             Обычно отвечаем в течение 5 минут
                         </p>
+                        <span class="cta-micro">Подходит для коротких резюме и кандидатов без “идеального” CV.</span>
                     </div>
                 </div>
             </div>
@@ -949,14 +957,14 @@
                     </div>
                     <div class="footer-column">
                         <h4>Компания</h4>
-                        <a href="#">О нас</a>
-                        <a href="#">Блог</a>
+                        <a href="#" id="about-trigger">О нас</a>
+                        <!-- <a href="#">Блог</a> Removed -->
                         <a href="#" id="contacts-trigger">Контакты</a>
                     </div>
                     <div class="footer-column">
                         <h4>Поддержка</h4>
                         <a href="#faq">FAQ</a>
-                        <a href="#">Документация</a>
+                        <!-- <a href="#">Документация</a> Removed -->
                         <a href="#">Связаться</a>
                     </div>
                 </div>
@@ -1980,7 +1988,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
     <!-- Contacts Modal -->
     <div class="modal-overlay" id="contacts-modal">
         <div class="modal-container" style="max-width: 500px;">
@@ -1994,38 +2001,71 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="contacts-content" >
-                    <div class="contact-company"
-                        >
+                <div class="contacts-content">
+                    <div class="contact-company">
                         ООО «Сталкер-Медиа»
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-label"
-                            >Адрес</div>
-                        <div class="contact-value" >
+                        <div class="contact-label">Адрес</div>
+                        <div class="contact-value">
                             г. Минск, БЦ "Зебра", ул. Сурганова, 61-407
                         </div>
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-label"
-                            >Телефон</div>
-                        <div class="contact-value" >
-                            <a href="tel:+375291131132" >+375
-                                29 113-113-2</a><br>
-                            <a href="tel:+375291699399" >+375
-                                29 169-93-99</a>
+                        <div class="contact-label">Телефон</div>
+                        <div class="contact-value">
+                            <a href="tel:+375291131132">+375 29 113-113-2</a><br>
+                            <a href="tel:+375291699399">+375 29 169-93-99</a>
                         </div>
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-label"
-                            >Email</div>
+                        <div class="contact-label">Email</div>
                         <div class="contact-value">
-                            <a href="mailto:office@stalking.by"
-                                >office@stalking.by</a>
+                            <a href="mailto:office@stalking.by">office@stalking.by</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <!-- About Us Modal -->
+    <div class="modal-overlay" id="about-modal">
+        <div class="modal-container" style="max-width: 600px;">
+            <div class="modal-header">
+                <div class="modal-title-text">О нас</div>
+                <button class="modal-close" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <div class="about-company-intro">
+                        Компания «Сталкер-Медиа» на рынке обучающих услуг Республики Беларусь работает с 2009 года.
+                    </div>
+
+                    <div class="about-section-title">Наши основные направления:</div>
+                    <ul class="about-list">
+                        <li><strong>Формирование НАВЫКОВ руководителей:</strong> оценка персонала, наём, делегирование,
+                            адаптация сотрудников, вовлеченность, тайм-менеджмент, эмоциональный интеллект.</li>
+                        <li><strong>Формирование НАВЫКОВ продавцов:</strong> базовые навыки продаж, СПИН-переговоры,
+                            сложные переговоры, стрессоустойчивость.</li>
+                        <li><strong>Формирование НАВЫКОВ ресурсного состояния:</strong> равновесие, защита от
+                            манипуляций, достижение целей, решение конфликтов.</li>
+                    </ul>
+
+                    <div class="about-section-title">Миссия нашей компании:</div>
+                    <div class="about-mission-text">
+                        Предоставить нашим клиентам проверенные работающие технологии, которые повышают их прибыль и
+                        увеличивают отдачу от каждого сотрудника, что экономит время и силы руководителя и позволяет
+                        компаниям быть конкурентоспособными на мировом рынке.
                     </div>
                 </div>
             </div>

@@ -715,6 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Modals
     new ModalController('a[href="privacy-policy.html"]', 'privacy-modal');
     new ModalController('#contacts-trigger', 'contacts-modal');
+    new ModalController('#about-trigger', 'about-modal');
 
     // Typing effect for hero title (with delay)
     setTimeout(() => {

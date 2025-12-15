@@ -366,6 +366,35 @@ section {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    /* Ensure vertical alignment */
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(0, 245, 255, 0.1);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+}
+
+.hero-micro,
+.cta-micro {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 12px;
+}
+
+.cta-micro {
+    text-align: center;
+    margin-top: 16px;
 }
 
 /* Hero Visual */
@@ -696,6 +725,8 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 60px;
+    justify-content: center;
+    /* Center the last odd item */
 }
 
 .benefit-card {
@@ -2224,6 +2255,25 @@ section {
         transform: rotate(-45deg) translate(7px, -7px);
     }
 
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .hero-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+    }
+
+    .hero-micro {
+        text-align: center;
+    }
+
     .hero-cta {
         flex-direction: column;
     }
@@ -2312,6 +2362,7 @@ section {
         font-size: 16px;
     }
 }
+
 /* ===================================
    MODAL
    =================================== */
@@ -2415,7 +2466,9 @@ section {
     font-size: 24px;
 }
 
-.policy-subtitle, .policy-meta, .operator-block {
+.policy-subtitle,
+.policy-meta,
+.operator-block {
     color: var(--text-muted);
 }
 
@@ -2433,7 +2486,8 @@ section {
     font-size: 16px;
 }
 
-.policy-root strong, .policy-root .accent {
+.policy-root strong,
+.policy-root .accent {
     color: var(--accent-cyan);
 }
 
@@ -2498,4 +2552,62 @@ section {
 
 .contact-value a:hover {
     color: var(--text-primary);
+}
+
+/* ===================================
+   ABOUT US MODAL
+   =================================== */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.about-company-intro {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.about-section-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.about-mission-text {
+    font-style: italic;
+    border-left: 3px solid var(--accent-cyan);
+    padding-left: 15px;
+    background: rgba(0, 240, 255, 0.05);
+    padding: 10px 15px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.about-list li::before {
+    content: "•";
+    color: var(--accent-cyan);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
