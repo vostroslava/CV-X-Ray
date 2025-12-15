@@ -1,991 +1,172 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="ИИ Собеседование - продвинутый AI-анализ резюме для HR и собственников. Получите структурированный отчёт с рисками, вопросами для интервью и рекомендациями за минуты.">
-    <title>ИИ Собеседование - AI-аналитик резюме для HR</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Политика конфиденциальности | Сталкер-Медиа</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg-gradient:
+        radial-gradient(circle at 0% 0%, #ffb6c9 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, #ffc46b 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, #8ec5fc 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, #e0c3fc 0, transparent 55%);
+      --card-bg: rgba(255, 255, 255, 0.98);
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --accent: #f97316;
+      --border-subtle: rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background-color: #020617;
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      background-size: cover;
+      color: var(--text-main);
+    }
+
+    .policy-root {
+      max-width: 980px;
+      margin: 32px auto 40px;
+      padding: 32px 24px 40px;
+      border-radius: 24px;
+      background: var(--card-bg);
+      box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.18),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+    }
+
+    @media (min-width: 768px) {
+      .policy-root {
+        padding: 40px 40px 44px;
+        margin-top: 40px;
+      }
+    }
+
+    .policy-title-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .policy-title-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+      }
+    }
+
+    .policy-title {
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .policy-subtitle {
+      margin-top: 4px;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .policy-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    @media (min-width: 640px) {
+      .policy-meta {
+        text-align: right;
+      }
+    }
+
+    .policy-meta strong {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    section {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    section:first-of-type {
+      margin-top: 16px;
+    }
+
+    section h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    section h3 {
+      margin: 12px 0 4px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 6px 18px;
+      padding-left: 0;
+    }
+
+    li {
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 2px 0;
+    }
+
+    .policy-footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .operator-block {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .operator-block span {
+      display: block;
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Particle Background -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="logo-icon">🤖</span>
-                <span class="logo-text">ИИ Собеседование</span>
-            </div>
-            <div class="nav-links">
-                <a href="#benefits" class="nav-link">Возможности</a>
-                <a href="#demo" class="nav-link">Демо</a>
-                <a href="#pricing" class="nav-link">Тарифы</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#cta-form" class="btn btn-primary btn-nav">Попробовать</a>
-            </div>
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text" data-scroll-animate>
-                    <h1 class="hero-title">
-                        <span class="gradient-text typing-effect">ИИ, который переводит резюме в решение</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Вставьте резюме кандидата — получите продвинутый отчёт: сильные стороны, риски,
-                        вопросы для интервью и итог <span class="highlight">"подходит / не подходит"</span>
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#cta-form" class="btn btn-primary btn-lg">
-                            <span>Протестировать на своём кандидате</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                        <a href="#demo" class="btn btn-secondary btn-lg">Посмотреть пример отчёта</a>
-                    </div>
-                </div>
-
-                <div class="hero-visual" data-scroll-animate>
-                    <!-- Resume Card -->
-                    <div class="resume-card">
-                        <div class="resume-header">
-                            <div class="resume-icon">📄</div>
-                            <div class="resume-title">Резюме кандидата</div>
-                        </div>
-                        <div class="resume-content">
-                            <div class="resume-line"></div>
-                            <div class="resume-line short"></div>
-                            <div class="resume-line"></div>
-                            <div class="resume-line medium"></div>
-                            <div class="resume-line"></div>
-                            <div class="resume-line short"></div>
-                        </div>
-                    </div>
-
-                    <!-- Data Flow Animation -->
-                    <div class="data-flow">
-                        <div class="flow-particle"></div>
-                        <div class="flow-particle"></div>
-                        <div class="flow-particle"></div>
-                        <div class="ai-icon">🤖</div>
-                    </div>
-
-                    <!-- Report Card -->
-                    <div class="report-card">
-                        <div class="report-tabs">
-                            <div class="report-tab active">Резюме</div>
-                            <div class="report-tab">Риски</div>
-                            <div class="report-tab">Вопросы</div>
-                            <div class="report-tab">Итог</div>
-                        </div>
-                        <div class="report-content">
-                            <div class="report-section">
-                                <div class="report-badge success">✓ Подходит частично</div>
-                                <div class="report-text">Кандидат с сильным техническим бэкграундом...</div>
-                                <div class="report-text short">Опыт в ключевых технологиях подтверждён</div>
-                            </div>
-                            <div class="report-highlight">
-                                <span class="highlight-icon">⚠️</span>
-                                <span>3 риска требуют проверки</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6 Steps Framework -->
-    <section id="framework" class="framework">
-        <div class="container">
-            <h2 class="section-title" data-scroll-animate>
-                <span class="gradient-text">6 шагов анализа вашего кандидата</span>
-            </h2>
-            <p class="section-subtitle" data-scroll-animate>
-                Глубокая методология оценки от резюме до финального решения
-            </p>
-
-            <div class="steps-container">
-                <div class="step-line"></div>
-                <div class="step" data-scroll-animate data-delay="100">
-                    <div class="step-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 4L4 10L16 16L28 10L16 4Z" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M4 22L16 28L28 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M4 16L16 22L28 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="step-number">01</div>
-                    <h3 class="step-title">Анализ резюме и маркеров</h3>
-                    <p class="step-description">ИИ вычленяет опыт, достижения, пробелы и несостыковки</p>
-                </div>
-
-                <div class="step" data-scroll-animate data-delay="200">
-                    <div class="step-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2" />
-                            <path d="M16 12V16L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div class="step-number">02</div>
-                    <h3 class="step-title">Вопросы для интервью</h3>
-                    <p class="step-description">Формируются вопросы по опыту, достижениям, мотивации</p>
-                </div>
-
-                <div class="step" data-scroll-animate data-delay="300">
-                    <div class="step-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path
-                                d="M16 4C9.4 4 4 9.4 4 16C4 22.6 9.4 28 16 28C22.6 28 28 22.6 28 16C28 9.4 22.6 4 16 4Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <path d="M16 10V16L20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div class="step-number">03</div>
-                    <h3 class="step-title">Проверка знаний</h3>
-                    <p class="step-description">Вопросы по ключевым навыкам и инструментам</p>
-                </div>
-
-                <div class="step" data-scroll-animate data-delay="400">
-                    <div class="step-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path
-                                d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <path d="M12 16L14.6667 18.6667L20 13.3333" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="step-number">04</div>
-                    <h3 class="step-title">Вовлечённость и зрелость</h3>
-                    <p class="step-description">Вопросы о мотивации, отношении к работе, росту</p>
-                </div>
-
-                <div class="step" data-scroll-animate data-delay="500">
-                    <div class="step-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path
-                                d="M28 16C28 22.6274 22.6274 28 16 28C9.37258 28 4 22.6274 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <path d="M16 11V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            <circle cx="16" cy="21" r="1" fill="currentColor" />
-                        </svg>
-                    </div>
-                    <div class="step-number">05</div>
-                    <h3 class="step-title">Наведение справок</h3>
-                    <p class="step-description">Формулировки для звонка рекомендателям и списки вопросов</p>
-                </div>
-
-                <div class="step" data-scroll-animate data-delay="600">
-                    <div class="step-icon">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 4L20 12L28 14L22 20L24 28L16 24L8 28L10 20L4 14L12 12L16 4Z"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="step-number">06</div>
-                    <h3 class="step-title">Риски и вывод</h3>
-                    <p class="step-description">Список красных флагов, что уточнить и финальное решение</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <h2 class="section-title" data-scroll-animate>
-                Что вы получаете на выходе
-            </h2>
-            <p class="section-subtitle" data-scroll-animate>
-                Не просто текст от ИИ, а <span class="highlight">готовый инструмент для принятия решений по людям</span>
-            </p>
-
-            <div class="benefits-grid">
-                <div class="benefit-card" data-scroll-animate data-delay="100">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2" />
-                            <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Исполнительное резюме для решения</h3>
-                    <p class="benefit-description">
-                        Короткий профиль кандидата, сильные стороны, риски и статус
-                        <strong>"подходит / частично / не подходит"</strong>
-                    </p>
-                    <div class="benefit-highlight">
-                        <span class="benefit-badge">Экономия времени</span>
-                        <span class="benefit-badge">Объективность</span>
-                    </div>
-                </div>
-
-                <div class="benefit-card" data-scroll-animate data-delay="200">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2" />
-                            <path d="M24 16V24L30 27" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Готовый сценарий интервью</h3>
-                    <p class="benefit-description">
-                        Список точечных вопросов по опыту, достижениям, мотивации, пробелам —
-                        можно идти в интервью с готовым планом
-                    </p>
-                    <div class="benefit-highlight">
-                        <span class="benefit-badge">Структурированность</span>
-                        <span class="benefit-badge">Глубина проверки</span>
-                    </div>
-                </div>
-
-                <div class="benefit-card" data-scroll-animate data-delay="300">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 8L28 16L36 18L30 24L32 32L24 28L16 32L18 24L12 18L20 16L24 8Z"
-                                stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Проверка компетенций и soft skills</h3>
-                    <p class="benefit-description">
-                        Вопросы, которые раскрывают реальные навыки, стиль мышления и
-                        поведение в сложных ситуациях
-                    </p>
-                    <div class="benefit-highlight">
-                        <span class="benefit-badge">Личностная оценка</span>
-                        <span class="benefit-badge">Прогноз успеха</span>
-                    </div>
-                </div>
-
-                <div class="benefit-card" data-scroll-animate data-delay="400">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path
-                                d="M24 40C32.8366 40 40 32.8366 40 24C40 15.1634 32.8366 8 24 8C15.1634 8 8 15.1634 8 24C8 32.8366 15.1634 40 24 40Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <path d="M24 16V24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            <circle cx="24" cy="30" r="1.5" fill="currentColor" />
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Риски и рекомендации</h3>
-                    <p class="benefit-description">
-                        Красные флаги, что обязательно проверить, и предложения по
-                        дальнейшим шагам (собеседование, тестовое, запрос рекомендаций)
-                    </p>
-                    <div class="benefit-highlight">
-                        <span class="benefit-badge">Снижение рисков</span>
-                        <span class="benefit-badge">Чёткие действия</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Before/After Section -->
-    <section id="comparison" class="comparison">
-        <div class="container">
-            <h2 class="section-title" data-scroll-animate>
-                До и После: как меняется работа с резюме
-            </h2>
-
-            <div class="comparison-wrapper">
-                <div class="comparison-side before" data-scroll-animate data-delay="100">
-                    <div class="comparison-label">Как это выглядит сейчас</div>
-                    <div class="comparison-visual chaos">
-                        <div class="sticky-note" style="top: 20%; left: 10%; transform: rotate(-5deg);">
-                            <div class="sticky-header yellow"></div>
-                            <div class="sticky-content">Проверить опыт?</div>
-                        </div>
-                        <div class="sticky-note" style="top: 40%; left: 60%; transform: rotate(8deg);">
-                            <div class="sticky-header pink"></div>
-                            <div class="sticky-content">Странные даты...</div>
-                        </div>
-                        <div class="sticky-note" style="top: 65%; left: 25%; transform: rotate(-12deg);">
-                            <div class="sticky-header blue"></div>
-                            <div class="sticky-content">Позвонить?</div>
-                        </div>
-                        <div class="document-bg">
-                            <div class="doc-line"></div>
-                            <div class="doc-line short"></div>
-                            <div class="doc-line"></div>
-                            <div class="doc-line medium"></div>
-                        </div>
-                    </div>
-                    <p class="comparison-description">
-                        Субъективные заметки, усталые глаза и ощущение,
-                        что что-то всё равно упустили
-                    </p>
-                </div>
-
-                <div class="vs-divider" data-scroll-animate>
-                    <span>VS</span>
-                </div>
-
-                <div class="comparison-side after" data-scroll-animate data-delay="200">
-                    <div class="comparison-label">Как это выглядит с ИИ-аналитиком</div>
-                    <div class="comparison-visual structured">
-                        <div class="structured-report">
-                            <div class="report-header-line"></div>
-                            <div class="report-section-title">
-                                <div class="section-icon"></div>
-                                <div class="section-text"></div>
-                            </div>
-                            <div class="report-bullet">
-                                <div class="bullet-dot"></div>
-                                <div class="bullet-line"></div>
-                            </div>
-                            <div class="report-bullet">
-                                <div class="bullet-dot"></div>
-                                <div class="bullet-line short"></div>
-                            </div>
-                            <div class="report-status success">
-                                <span class="status-icon">✓</span>
-                                <span class="status-text">ИТОГ: Подходит частично</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="comparison-description">
-                        Объективная структура, чёткий список вопросов,
-                        понятные риски и рекомендация <strong>"брать / не брать"</strong>
-                    </p>
-                </div>
-            </div>
-
-            <div class="time-comparison" data-scroll-animate>
-                <div class="time-metric">
-                    <span class="time-label">Было</span>
-                    <span class="time-value old">Часы</span>
-                </div>
-                <div class="time-arrow">→</div>
-                <div class="time-metric">
-                    <span class="time-label">Стало</span>
-                    <span class="time-value new">Минуты</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Target Audience -->
-    <section id="audience" class="audience">
-        <div class="container">
-            <h2 class="section-title" data-scroll-animate>
-                Кому это особенно полезно
-            </h2>
-
-            <div class="audience-grid">
-                <div class="audience-card" data-scroll-animate data-delay="100">
-                    <div class="audience-icon">
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="20" r="12" stroke="currentColor" stroke-width="2" />
-                            <path d="M12 52C12 42 20 36 32 36C44 36 52 42 52 52" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path d="M40 20L48 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            <circle cx="48" cy="12" r="4" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h3 class="audience-title">Собственникам и директорам</h3>
-                    <p class="audience-description">
-                        Когда хочется лично контролировать найм ключевых людей,
-                        но нет времени разбираться в каждом резюме
-                    </p>
-                    <ul class="audience-benefits">
-                        <li>✓ Быстрая оценка топ-кандидатов</li>
-                        <li>✓ Снижение риска дорогой ошибки найма</li>
-                        <li>✓ Готовые вопросы для личного интервью</li>
-                    </ul>
-                </div>
-
-                <div class="audience-card" data-scroll-animate data-delay="200">
-                    <div class="audience-icon">
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                            <rect x="12" y="12" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2" />
-                            <path d="M22 28L28 34L42 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3 class="audience-title">HR-специалистам и рекрутерам</h3>
-                    <p class="audience-description">
-                        Когда десятки резюме в день и нужно быстро отсеивать слабых кандидатов,
-                        не теряя качество оценки
-                    </p>
-                    <ul class="audience-benefits">
-                        <li>✓ Обработка в 10 раз быстрее</li>
-                        <li>✓ Единый стандарт оценки</li>
-                        <li>✓ Меньше пропущенных top talent</li>
-                    </ul>
-                </div>
-
-                <div class="audience-card" data-scroll-animate data-delay="300">
-                    <div class="audience-icon">
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                            <path d="M32 12L36 20L44 22L38 28L40 36L32 32L24 36L26 28L20 22L28 20L32 12Z"
-                                stroke="currentColor" stroke-width="2" />
-                            <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h3 class="audience-title">HR-агентствам и фрилансерам</h3>
-                    <p class="audience-description">
-                        Когда нужно добавлять ценность клиенту и продавать
-                        продвинутые отчёты как премиум-услугу
-                    </p>
-                    <ul class="audience-benefits">
-                        <li>✓ White Label возможности</li>
-                        <li>✓ Новая линейка услуг</li>
-                        <li>✓ Повышение среднего чека</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Demo -->
-    <section id="demo" class="demo">
-        <div class="container">
-            <h2 class="section-title" data-scroll-animate>
-                Как выглядит отчёт
-            </h2>
-            <p class="section-subtitle" data-scroll-animate>
-                Интерактивный пример реального продвинутого отчёта
-            </p>
-
-            <div class="demo-wrapper" data-scroll-animate>
-                <div class="demo-interface">
-                    <div class="demo-header">
-                        <div class="demo-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="demo-title">Отчёт по кандидату</div>
-                        <div class="demo-actions">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="demo-tabs">
-                        <button class="demo-tab active" data-tab="executive">
-                            <span class="tab-icon">📋</span>
-                            Исполнительное резюме
-                        </button>
-                        <button class="demo-tab" data-tab="risks">
-                            <span class="tab-icon">⚠️</span>
-                            Риски
-                        </button>
-                        <button class="demo-tab" data-tab="questions">
-                            <span class="tab-icon">❓</span>
-                            Вопросы
-                        </button>
-                        <button class="demo-tab" data-tab="conclusion">
-                            <span class="tab-icon">✓</span>
-                            Итог
-                        </button>
-                    </div>
-
-                    <div class="demo-content">
-                        <!-- Executive Summary Tab -->
-                        <div class="demo-panel active" data-panel="executive">
-                            <div class="panel-section">
-                                <h4 class="panel-title">Профиль кандидата</h4>
-                                <p class="panel-text">
-                                    <strong>Иван Петров</strong>, Product Manager с 7-летним опытом в IT.
-                                    Работал в стартапах и крупных компаниях, вёл продукты от идеи до запуска.
-                                </p>
-                            </div>
-
-                            <div class="panel-section">
-                                <h4 class="panel-title">Сильные стороны</h4>
-                                <ul class="panel-list">
-                                    <li>
-                                        <span class="list-icon">✓</span>
-                                        Подтверждённый опыт запуска 3 успешных продуктов
-                                    </li>
-                                    <li>
-                                        <span class="list-icon">✓</span>
-                                        Владение современными методологиями (Agile, Scrum, Lean)
-                                    </li>
-                                    <li>
-                                        <span class="list-icon">✓</span>
-                                        Опыт работы с кросс-функциональными командами до 15 человек
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="panel-badge-group">
-                                <span class="panel-badge success">Сильный технический бэкграунд</span>
-                                <span class="panel-badge info">Опыт в B2B и B2C</span>
-                                <span class="panel-badge warning">Требует проверки метрик</span>
-                            </div>
-                        </div>
-
-                        <!-- Risks Tab -->
-                        <div class="demo-panel" data-panel="risks">
-                            <div class="panel-section">
-                                <h4 class="panel-title">Красные флаги</h4>
-                                <div class="risk-item high">
-                                    <div class="risk-header">
-                                        <span class="risk-icon">🔴</span>
-                                        <span class="risk-level">Высокий риск</span>
-                                    </div>
-                                    <p class="risk-description">
-                                        Пробел в трудоустройстве 8 месяцев между последними двумя позициями.
-                                        Причина не указана.
-                                    </p>
-                                </div>
-
-                                <div class="risk-item medium">
-                                    <div class="risk-header">
-                                        <span class="risk-icon">🟡</span>
-                                        <span class="risk-level">Средний риск</span>
-                                    </div>
-                                    <p class="risk-description">
-                                        Частая смена работодателей: 4 компании за 5 лет. Средняя длительность — 15
-                                        месяцев.
-                                    </p>
-                                </div>
-
-                                <div class="risk-item low">
-                                    <div class="risk-header">
-                                        <span class="risk-icon">🟢</span>
-                                        <span class="risk-level">Низкий риск</span>
-                                    </div>
-                                    <p class="risk-description">
-                                        Отсутствие конкретных метрик роста продукта. Упоминаются результаты, но без
-                                        цифр.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="panel-section">
-                                <h4 class="panel-title">Что обязательно уточнить</h4>
-                                <ul class="panel-list">
-                                    <li><span class="list-icon">→</span> Причина пробела в трудоустройстве</li>
-                                    <li><span class="list-icon">→</span> Мотивация частой смены работодателей</li>
-                                    <li><span class="list-icon">→</span> Конкретные метрики успеха продуктов</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Questions Tab -->
-                        <div class="demo-panel" data-panel="questions">
-                            <div class="panel-section">
-                                <h4 class="panel-title">Вопросы по опыту и достижениям</h4>
-                                <div class="question-item">
-                                    <div class="question-number">1</div>
-                                    <div class="question-content">
-                                        <p class="question-text">
-                                            Вы упомянули увеличение конверсии на 40% в одном из проектов.
-                                            Расскажите подробнее: с какой базовой цифры начинали, какие гипотезы
-                                            тестировали?
-                                        </p>
-                                        <span class="question-tag">Проверка достижений</span>
-                                    </div>
-                                </div>
-
-                                <div class="question-item">
-                                    <div class="question-number">2</div>
-                                    <div class="question-content">
-                                        <p class="question-text">
-                                            Опишите самую сложную ситуацию в работе с командой разработки.
-                                            Как вы её решали?
-                                        </p>
-                                        <span class="question-tag">Soft skills</span>
-                                    </div>
-                                </div>
-
-                                <div class="question-item">
-                                    <div class="question-number">3</div>
-                                    <div class="question-content">
-                                        <p class="question-text">
-                                            У вас был пробел 8 месяцев между работой в компании X и Y.
-                                            Что делали в этот период?
-                                        </p>
-                                        <span class="question-tag">Уточнение пробела</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel-section">
-                                <h4 class="panel-title">Проверка компетенций</h4>
-                                <ul class="panel-list">
-                                    <li><span class="list-icon">?</span> Как вы приоритизируете фичи в продуктовом
-                                        беклоге?</li>
-                                    <li><span class="list-icon">?</span> Приведите пример использования A/B тестирования
-                                    </li>
-                                    <li><span class="list-icon">?</span> Как вы работаете с пользовательскими интервью?
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Conclusion Tab -->
-                        <div class="demo-panel" data-panel="conclusion">
-                            <div class="conclusion-status partial">
-                                <div class="status-icon-large">⚡</div>
-                                <h3 class="status-title">Подходит частично</h3>
-                                <p class="status-description">
-                                    Кандидат обладает необходимыми компетенциями и опытом,
-                                    но есть риски, которые требуют дополнительной проверки на интервью.
-                                </p>
-                            </div>
-
-                            <div class="panel-section">
-                                <h4 class="panel-title">Рекомендуемые действия</h4>
-                                <div class="action-steps">
-                                    <div class="action-step">
-                                        <div class="action-number">1</div>
-                                        <div class="action-content">
-                                            <h5>Пригласить на интервью</h5>
-                                            <p>Использовать подготовленные вопросы для проверки рисков</p>
-                                        </div>
-                                    </div>
-                                    <div class="action-step">
-                                        <div class="action-number">2</div>
-                                        <div class="action-content">
-                                            <h5>Запросить рекомендации</h5>
-                                            <p>Связаться с предыдущими работодателями для проверки достижений</p>
-                                        </div>
-                                    </div>
-                                    <div class="action-step">
-                                        <div class="action-number">3</div>
-                                        <div class="action-content">
-                                            <h5>Дать кейс-задание</h5>
-                                            <p>Проверить практические навыки работы с метриками продукта</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel-footer">
-                                <p class="footer-note">
-                                    💡 Это пример реального продвинутого отчёта.
-                                    Ваш кандидат получит такой же уровень анализа уже через несколько минут.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 class="section-title">
-                Тарифы
-            </h2>
-            <p class="section-subtitle">
-                Выберите план, который подходит вашим задачам
-            </p>
-
-            <div class="pricing-grid"
-                style="grid-template-columns: 1fr; max-width: 450px; margin-left: auto; margin-right: auto;">
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">🎄 Новогодняя акция</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-title">Полный доступ</h3>
-                        <p class="pricing-description">Всё необходимое для качественного найма</p>
-                    </div>
-                    <div class="pricing-price">
-                        <div class="price-container">
-                            <span class="old-price">1500</span>
-                            <span class="price-value">650</span>
-                            <span class="price-currency">BYN</span>
-                        </div>
-                        <span class="price-period">/6 месяцев</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="feature-icon">✓</span> Анализ резюме и маркеров</li>
-                        <li><span class="feature-icon">✓</span> Готовые вопросы для интервью</li>
-                        <li><span class="feature-icon">✓</span> Список рисков и рекомендации</li>
-                        <li><span class="feature-icon">✓</span> История всех отчётов</li>
-                    </ul>
-                    <a href="#cta-form" class="btn btn-primary btn-full">Начать использовать</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title" data-scroll-animate>
-                Частые вопросы
-            </h2>
-
-            <div class="faq-list">
-                <div class="faq-item" data-scroll-animate data-delay="100">
-                    <button class="faq-question">
-                        <span>Как обеспечивается конфиденциальность резюме?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Все данные передаются по защищённому протоколу и обрабатываются в соответствии
-                            с требованиями GDPR и 152-ФЗ. Резюме не сохраняются на наших серверах после
-                            генерации отчёта. Мы используем enterprise-уровень безопасности.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-scroll-animate data-delay="200">
-                    <button class="faq-question">
-                        <span>В каких форматах можно загружать резюме?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Поддерживаем все популярные форматы: PDF, DOC, DOCX, TXT.
-                            Также можно просто скопировать текст резюме и вставить в форму.
-                            ИИ корректно обрабатывает резюме на русском и английском языках.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-scroll-animate data-delay="300">
-                    <button class="faq-question">
-                        <span>Как быстро приходит отчёт?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Обработка занимает от 2 до 5 минут в зависимости от объёма резюме.
-                            Отчёт приходит на вашу электронную почту и сохраняется в личном кабинете.
-                            При тарифе "Для HR-отдела" доступна приоритетная обработка — до 1 минуты.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-scroll-animate data-delay="400">
-                    <button class="faq-question">
-                        <span>Можно ли настроить анализ под специфику нашей компании?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Да, в тарифе "Для агентств" доступна кастомизация критериев оценки,
-                            добавление специфичных вопросов для вашей индустрии и настройка весов
-                            различных параметров. Мы также можем обучить модель на ваших исторических данных.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-scroll-animate data-delay="500">
-                    <button class="faq-question">
-                        <span>Что делать, если ИИ ошибся в оценке?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            ИИ Собеседование — это инструмент поддержки принятия решений, а не замена
-                            человеческой экспертизы. Мы рекомендуем использовать отчёт как основу для
-                            интервью, а финальное решение принимать с учётом живого общения с кандидатом.
-                            При этом точность наших оценок постоянно растёт благодаря обучению на обратной связи.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-scroll-animate data-delay="600">
-                    <button class="faq-question">
-                        <span>Есть ли возможность интеграции с нашей ATS системой?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>
-                            Да, для корпоративных клиентов мы предоставляем REST API для интеграции
-                            с популярными ATS системами (Workday, Greenhouse, Lever и другими).
-                            Также возможна разработка кастомных интеграций под ваши процессы.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section id="cta-form" class="final-cta">
-        <div class="container">
-            <div class="cta-wrapper" data-scroll-animate>
-                <div class="cta-content">
-                    <h2 class="cta-title">
-                        Проверьте на одном резюме, как меняется ваш взгляд на кандидатов
-                    </h2>
-                    <p class="cta-description">
-                        Загрузите резюме вашего кандидата и получите продвинутый отчёт
-                        с анализом, рисками и готовыми вопросами для интервью
-                    </p>
-                </div>
-
-                <div class="cta-telegram">
-                    <div class="telegram-card">
-                        <div class="telegram-icon">
-                            <svg width="80" height="80" viewBox="0 0 240 240" fill="none">
-                                <circle cx="120" cy="120" r="110" fill="url(#telegram-gradient)" />
-                                <path
-                                    d="M81.229 128.772l14.237 39.406s1.78 3.687 3.686 3.687 30.255-29.492 30.255-29.492l31.525-60.89L81.737 118.6"
-                                    fill="#C8DAEA" />
-                                <path d="M100.106 138.878l-2.733 29.046s-1.144 8.9 7.754 0 17.415-15.763 17.415-15.763"
-                                    fill="#A9C6D8" />
-                                <path
-                                    d="M81.486 130.178l-17.8-5.467s-2.164-.868-1.516-2.82c.136-.403.406-.883 1.44-1.628 4.613-3.203 86.207-32.642 86.207-32.642s2.3-.868 3.687-.545c.584.136 1.141.407 1.575 1.048.175.256.358.656.467 1.249.054.293.105.865.105 1.482 0 .436-.027 1.022-.082 1.77-.605 8.234-18.229 82.203-18.229 82.203s-1.049 4.234-4.816 4.369c-1.629.055-3.677-.546-6.5-2.327-6.906-4.369-30.065-21.4-35.173-24.82-.434-.29-.758-.65-.893-1.184-.163-.65.027-1.301.649-1.896 13.834-13.19 30.363-28.602 40.264-38.832 1.184-1.222 2.368-4.369-1.583-2.054-13.563 7.931-57.176 38.398-63.59 42.496a1.686 1.686 0 01-.649.245z"
-                                    fill="#fff" />
-                                <defs>
-                                    <linearGradient id="telegram-gradient" x1="120" y1="10" x2="120" y2="230">
-                                        <stop stop-color="#37aee2" />
-                                        <stop offset="1" stop-color="#1e96c8" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-
-                        <h3 class="telegram-title">Напишите нам в Telegram</h3>
-                        <p class="telegram-description">
-                            Свяжитесь с нашим экспертом для получения анализа резюме.
-                            Отправьте сообщение с текстом <strong>"ИИ-резюме"</strong>
-                        </p>
-
-                        <div class="telegram-steps">
-                            <div class="telegram-step">
-                                <div class="step-num">1</div>
-                                <div class="step-text">Нажмите кнопку "Написать в Telegram"</div>
-                            </div>
-                            <div class="telegram-step">
-                                <div class="step-num">2</div>
-                                <div class="step-text">Отправьте сообщение <strong>"ИИ-резюме"</strong></div>
-                            </div>
-                            <div class="telegram-step">
-                                <div class="step-num">3</div>
-                                <div class="step-text">Получите инструкции по загрузке резюме</div>
-                            </div>
-                        </div>
-
-                        <a href="https://t.me/Roman_HR_BP" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-primary btn-lg btn-full telegram-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"
-                                    fill="currentColor" />
-                            </svg>
-                            <span>Написать в Telegram</span>
-                        </a>
-
-                        <p class="telegram-note">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M8 5v3M8 10h.01" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" />
-                            </svg>
-                            Обычно отвечаем в течение 5 минут
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-icon">🤖</span>
-                        <span class="logo-text">ИИ Собеседование</span>
-                    </div>
-                    <p class="footer-description">
-                        AI-аналитик резюме для принятия решений по людям
-                    </p>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Продукт</h4>
-                        <a href="#benefits">Возможности</a>
-                        <a href="#pricing">Тарифы</a>
-                        <a href="#demo">Демо</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Компания</h4>
-                        <a href="#">О нас</a>
-                        <a href="#">Блог</a>
-                        <a href="#">Контакты</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Поддержка</h4>
-                        <a href="#faq">FAQ</a>
-                        <a href="#">Документация</a>
-                        <a href="#">Связаться</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 ИИ Собеседование. Все права защищены.</p>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Политика конфиденциальности</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    
-    <!-- Privacy Policy Modal -->
-    <div class="modal-overlay" id="privacy-modal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <div class="modal-title-text">Политика конфиденциальности</div>
-                <button class="modal-close" aria-label="Close">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="policy-root">
-
+  <main class="policy-root" aria-labelledby="policy-title">
     <header class="policy-title-row">
       <div>
         <h1 id="policy-title" class="policy-title">
@@ -1970,13 +1151,6 @@
         <span><strong>E-mail:</strong> office@stalking.by</span>
       </div>
     </div>
-  
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  </main>
 </body>
-
 </html>

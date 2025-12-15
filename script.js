@@ -641,6 +641,56 @@ class ButtonRipple {
 }
 
 // ===================================
+// MODAL CONTROLLER
+// ===================================
+class ModalController {
+    constructor() {
+        this.modal = document.getElementById('privacy-modal');
+        this.trigger = document.querySelector('a[href="privacy-policy.html"]');
+        this.closeBtn = this.modal?.querySelector('.modal-close');
+
+        this.init();
+    }
+
+    init() {
+        if (!this.modal) return;
+
+        if (this.trigger) {
+            this.trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.open();
+            });
+        }
+
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.close());
+        }
+
+        // Close on outside click
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) this.close();
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                this.close();
+            }
+        });
+    }
+
+    open() {
+        this.modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    close() {
+        this.modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// ===================================
 // INITIALIZE ALL
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -661,6 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new ButtonRipple();
     new GradientAnimation();
+    new ModalController();
 
     // Typing effect for hero title (with delay)
     setTimeout(() => {
