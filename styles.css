@@ -1392,6 +1392,15 @@ section {
     font-size: 18px;
 }
 
+/* Responsive Tab Text */
+.tab-text-mobile {
+    display: none;
+}
+
+.tab-text-desktop {
+    display: inline;
+}
+
 .demo-content {
     padding: 40px;
     min-height: 500px;
@@ -2480,15 +2489,55 @@ section {
 
     .demo-tabs {
         padding: 16px 20px;
+        /* Mobile Segmented Control */
+        flex-wrap: wrap;
+        justify-content: stretch;
+        gap: 8px;
+        overflow-x: visible;
+        /* No scroll */
     }
 
     .demo-tab {
-        padding: 10px 16px;
+        padding: 10px 12px;
         font-size: 13px;
+        flex: 1 1 45%;
+        /* 2 per row */
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Make the last odd item full width if specific counting needed, 
+       but 45% flex allows auto-fit nicely. 
+       Let's ensure "Executive" (first) is full width if we want,
+       or just let them flow 2x2. User said "2 in 1st row, 1 in 2nd" or sim.
+       With 4 items, 2x2 is perfect. */
+
+    .tab-text-desktop {
+        display: none;
+    }
+
+    .tab-text-mobile {
+        display: inline;
     }
 
     .demo-content {
         padding: 24px 20px;
+    }
+
+    /* FIX: Pricing Badge Mobile Stability */
+    .pricing-badge {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto 16px auto;
+        display: table;
+        /* Fit content */
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        pointer-events: none;
+        /* No clicking badge */
     }
 
     .cta-wrapper {
