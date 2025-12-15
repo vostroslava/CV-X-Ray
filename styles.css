@@ -732,6 +732,13 @@ section {
     transition: all 0.3s ease;
 }
 
+.step-icon svg {
+    display: block;
+    /* Removes bottom spacing */
+    margin: auto;
+    /* Ensures center if flex fails */
+}
+
 .step:hover .step-icon {
     transform: scale(1.1) rotate(5deg);
     box-shadow: var(--shadow-glow);
