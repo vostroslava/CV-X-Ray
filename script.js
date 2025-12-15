@@ -777,13 +777,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Sticky CTA
     new MobileStickyCTA();
 
-    // Typing effect for hero title (with delay)
-    setTimeout(() => {
-        const typingElement = document.querySelector('.typing-effect');
-        if (typingElement) {
-            new TypingEffect(typingElement);
-        }
-    }, 500);
+    // Typing effect dynamically
+    document.querySelectorAll('.typing-effect').forEach(element => {
+        const delay = parseInt(element.dataset.typeDelay) || 500;
+        setTimeout(() => {
+            new TypingEffect(element);
+        }, delay);
+    });
 
     // Optional cursor trail (comment out if too much)
     // new CursorTrail();
